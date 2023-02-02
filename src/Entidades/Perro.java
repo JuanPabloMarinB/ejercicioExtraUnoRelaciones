@@ -1,6 +1,4 @@
-package Entidades;
 
-import Enums.Raza;
 
 public class Perro {
 
