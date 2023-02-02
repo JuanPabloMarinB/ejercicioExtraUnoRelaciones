@@ -5,6 +5,7 @@
 package Paneles;
 
 import Entidades.Perro;
+import Servicios.ServicioPerro;
 import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.event.FocusEvent;
@@ -16,7 +17,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-
 public class PanelPrincipal extends java.awt.Frame {
 
     /**
@@ -26,13 +26,14 @@ public class PanelPrincipal extends java.awt.Frame {
     String userNamePlaceHolder = "👤 Username";
     String cedulaPlaceHolder = "🔑 Clave, Cédula o DNI";
     DogsPanel panelPerros = new DogsPanel();
-    LinkedList<Perro> listadoPerros = new LinkedList();
+    ServicioPerro sp = new ServicioPerro();
     
+
     public PanelPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
-        agregarImagen(logos, rutaLogo);
+
+        sp.agregarImagen(logos, rutaLogo);
         agregarPlaceholder(userNameInput, userNamePlaceHolder);
         agregarPlaceholder(cedulaInput, cedulaPlaceHolder);
         System.out.println(fondoFormulario.getBounds());
@@ -227,9 +228,9 @@ public class PanelPrincipal extends java.awt.Frame {
 
     }
 
-    
+
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        
+
         if (userNameInput.getText().equalsIgnoreCase(userNamePlaceHolder) && cedulaInput.getText().equalsIgnoreCase(cedulaPlaceHolder)) {
 
         } else if (userNameInput.getText().equalsIgnoreCase("Juanderpablo") && cedulaInput.getText().equalsIgnoreCase("27492044-0")) {
@@ -247,14 +248,14 @@ public class PanelPrincipal extends java.awt.Frame {
 
     }//GEN-LAST:event_loginButtonActionPerformed
 
-    public static void agregarImagen(JLabel component, String root) {
+    /*public static void agregarImagen(JLabel component, String root) {
 
         ImageIcon image = new ImageIcon(root);
         Icon icon = new ImageIcon(
                 image.getImage().getScaledInstance(component.getWidth(), component.getHeight(), Image.SCALE_DEFAULT));
         component.setIcon(icon);
         component.repaint();
-    }
+    }*/
 
     /**
      * @param args the command line arguments

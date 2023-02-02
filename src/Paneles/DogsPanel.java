@@ -4,17 +4,43 @@
  */
 package Paneles;
 
+import Entidades.Perro;
+import Servicios.ServicioPerro;
+import java.awt.Image;
+import java.util.LinkedList;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author 56946
  */
 public class DogsPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form DogsPanel
-     */
+    LinkedList<Perro> listadoPerritos = new LinkedList();
+    LinkedList<JLabel> listadoJLabel = new LinkedList();
+    ServicioPerro sp = new ServicioPerro();
+
     public DogsPanel() {
         initComponents();
+        listadoPerritos = sp.crearPerros();
+        agregarImagenNueva(imagenPerroUno, listadoPerritos.get(0).getImagen());
+        listadoJLabel.add(imagenPerroUno);
+        listadoJLabel.add(imagenPerroDos);
+        System.out.println(listadoPerritos.get(0).getImagen());
+        /*for (int i = 0; i < 2; i++) {
+            PanelPrincipal.agregarImagen(listadoJLabel.get(i), listadoPerritos.get(i).getImagen());
+        }*/
+    }
+
+    public static void agregarImagenNueva(JLabel component, String root) {
+
+        ImageIcon image = new ImageIcon(root);
+        Icon icon = new ImageIcon(
+                image.getImage().getScaledInstance(component.getWidth(), component.getHeight(), Image.SCALE_DEFAULT));
+        component.setIcon(icon);
+        component.repaint();
     }
 
     /**
@@ -26,14 +52,28 @@ public class DogsPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        imagenPerroUno = new javax.swing.JLabel();
+        nombrePerroUno = new javax.swing.JLabel();
+        razaPerroUno = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        imagenPerroDos = new javax.swing.JLabel();
+        razaPerroUno1 = new javax.swing.JLabel();
+        nombrePerroUno1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
+
+        jLabel3.setText("jLabel3");
+
+        jLabel1.setText("jLabel1");
 
         setBackground(new java.awt.Color(230, 230, 230));
         setMaximumSize(new java.awt.Dimension(727, 396));
@@ -43,51 +83,62 @@ public class DogsPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(230, 230, 230));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(215, 215, 215), 2));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 136, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 136, Short.MAX_VALUE)
-        );
+        imagenPerroUno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imagenPerroUno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        imagenPerroUno.setMaximumSize(new java.awt.Dimension(50, 50));
+        imagenPerroUno.setMinimumSize(new java.awt.Dimension(50, 50));
+        imagenPerroUno.setPreferredSize(new java.awt.Dimension(50, 50));
+        jPanel1.add(imagenPerroUno, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 20, 50, 50));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 140, 140));
+        nombrePerroUno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nombrePerroUno.setText("jLabel2");
+        jPanel1.add(nombrePerroUno, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 100, -1));
+
+        razaPerroUno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        razaPerroUno.setText("jLabel4");
+        jPanel1.add(razaPerroUno, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 100, -1));
+
+        jButton1.setText("Adoptar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 80, -1));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 140, 160));
 
         jPanel2.setBackground(new java.awt.Color(230, 230, 230));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(215, 215, 215), 2));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 136, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 136, Short.MAX_VALUE)
-        );
+        imagenPerroDos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(imagenPerroDos, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 40, 50, 50));
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 140, 140));
+        razaPerroUno1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        razaPerroUno1.setText("jLabel4");
+        jPanel2.add(razaPerroUno1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 100, -1));
+
+        nombrePerroUno1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nombrePerroUno1.setText("jLabel2");
+        jPanel2.add(nombrePerroUno1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 97, 100, -1));
+
+        jButton2.setText("Adoptar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 80, -1));
+
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 140, 160));
 
         jPanel3.setBackground(new java.awt.Color(230, 230, 230));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(215, 215, 215), 2));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 136, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 136, Short.MAX_VALUE)
-        );
-
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 140, 140));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 140, 150));
 
         jPanel4.setBackground(new java.awt.Color(230, 230, 230));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(215, 215, 215), 2));
@@ -170,8 +221,22 @@ public class DogsPanel extends javax.swing.JPanel {
         add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 226, 140, 140));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel imagenPerroDos;
+    private javax.swing.JLabel imagenPerroUno;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -180,5 +245,9 @@ public class DogsPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JLabel nombrePerroUno;
+    private javax.swing.JLabel nombrePerroUno1;
+    private javax.swing.JLabel razaPerroUno;
+    private javax.swing.JLabel razaPerroUno1;
     // End of variables declaration//GEN-END:variables
 }
